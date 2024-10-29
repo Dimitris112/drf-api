@@ -62,7 +62,7 @@ if not SECRET_KEY:
     raise ValueError("SECRET_KEY environment variable is not set")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['127.0.0.1', 'https://drf-api-backend-11522e18c941.herokuapp.com/']
 
