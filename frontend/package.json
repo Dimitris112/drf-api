@@ -46,6 +46,7 @@
   "devDependencies": {
     "msw": "^2.6.4"
   },
+  "proxy": "http://localhost:8000/",
   "engines": {
     "node": "16.19.1",
     "npm": "8.19.3"
