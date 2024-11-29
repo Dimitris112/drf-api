@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-import re
+# import re
 import dj_database_url
 
 if os.path.exists('env.py'):
@@ -61,26 +61,25 @@ if not SECRET_KEY:
     raise ValueError("SECRET_KEY environment variable is not set")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
-    '127.0.0.1',
 ]
 
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
+# if 'CLIENT_ORIGIN' in os.environ:
+#     CORS_ALLOWED_ORIGINS = [
+#         os.environ.get('CLIENT_ORIGIN')
+#     ]
 
-if 'CLIENT_ORIGIN_DEV' in os.environ:
-    CORS_ALLOWED_ORIGINS.append(os.environ.get("CLIENT_ORIGIN_DEV"))
+# if 'CLIENT_ORIGIN_DEV' in os.environ:
+CORS_ALLOWED_ORIGINS = [
+    os.environ.get('CLIENT_ORIGIN')
+]
 
 
 CORS_ALLOW_CREDENTIALS = True
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
